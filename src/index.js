@@ -1,28 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Header />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Menu />
 
       <Footer />
-    </>
+    </div>
   );
 }
 
 function Header() {
   return (
     <header className="header">
-      <h1>Fast React Pizza Co.</h1>
+      <h1 /*style={{ color: "red", fontSize: "25", textTransform: "uppercase" }}*/
+      >
+        Fast React Pizza Co.
+      </h1>
     </header>
   );
 }
 
-function Menu() {}
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </main>
+  );
+}
 
 function Footer() {
   return (
@@ -37,7 +48,7 @@ function Pizza() {
   return (
     <>
       <img src="pizzas/spinaci.jpg" alt="spinaci pizza"></img>
-      <h2>Pizza</h2>
+      <h3>Pizza</h3>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </>
   );
