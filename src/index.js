@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import pizzaData from "./data.js";
 
 function App() {
   return (
@@ -29,7 +30,13 @@ function Menu() {
     <main className="menu">
       <h2>Our Menu</h2>
 
-      <Pizza
+      <ul>
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} />
+        ))}
+      </ul>
+
+      {/* <Pizza
         name="Pizza Spinaci"
         ingredient="Tomato, mozarella, spinach, and ricotta cheese"
         price={10}
@@ -41,7 +48,7 @@ function Menu() {
         ingredient="Tomato, mozarella, spinach, and ricotta cheese"
         price={12}
         photoName="pizzas/funghi.jpg"
-      />
+      /> */}
     </main>
   );
 }
@@ -49,12 +56,12 @@ function Menu() {
 function Pizza(props) {
   return (
     <div className="pizza">
-      <img src={props.photoName} alt={props.name}></img>
-      <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredient}</p>
-        <span>{props.price}</span>
-      </div>
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
+      <li>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
+      </li>
     </div>
   );
 }
